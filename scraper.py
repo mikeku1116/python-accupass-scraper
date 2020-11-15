@@ -44,6 +44,9 @@ df = pd.DataFrame(result, columns=["活動名稱", "觀看人數", "喜歡人數
 new_df = df[df["售票狀態"] == "熱銷中"]  # 篩選資料
 
 sort_df = new_df.sort_values(["觀看人數"], ascending=False)  # 依據觀看人數來遞減排序
-print(sort_df)
+
+sort_df.to_excel("accupass.xlsx",
+                 sheet_name="activities",
+                 index=False)  # 匯出Excel檔案(不寫入資料索引值)
 
 browser.quit()  # 關閉Chrome瀏覽器
